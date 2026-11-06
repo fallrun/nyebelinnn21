@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday yang ke 21 Cintaaaa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sky-top: #cbe8ff;
+      --sky-mid: #e6f4ff;
+      --sky-bottom: #ffffff;
+      --ocean-light: #7ec8f8;
+      --ocean-mid: #4dabf0;
+      --ocean-deep: #2b8ce0;
+      --accent-blue: #2563eb;
+      --soft-blue: #dbeafe;
+      --pastel-pink: #fda4af;
+      --pastel-yellow: #fde047;
+      --text-main: #1e3a5f;
+      --text-muted: #5b7da3;
+      --card-bg: rgba(255, 255, 255, 0.92);
+      --glass-border: rgba(255, 255, 255, 0.75);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 55%, var(--sky-bottom) 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ================= IT STATUS BAR (TOP) ================= */
+    .telemetry-bar {
+      margin-top: 16px;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1.5px solid var(--glass-border);
+      border-radius: 999px;
+      padding: 8px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-main);
+      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.12);
+      max-width: 94vw;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      background: #10b981;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 8px #10b981;
+      animation: pulseDot 2s infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.25); opacity: 0.7; }
+    }
+
+    .badge-ok {
+      background: #dcfce7;
+      color: #15803d;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .divider {
+      color: #cbd5e1;
+    }
+
+    .audio-btn {
+      background: var(--soft-blue);
+      border: none;
+      color: var(--accent-blue);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: #bfdbfe;
+      transform: translateY(-1px);
+    }
+
+    /* ================= CLOUDS & SKY DECORATION ================= */
+    .sky-clouds {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 55%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .cloud {
+      position: absolute;
+      background: #ffffff;
+      border-radius: 999px;
+      opacity: 0.82;
+      filter: drop-shadow(0 8px 16px rgba(125, 211, 252, 0.25));
+      animation: floatCloud linear infinite;
+    }
+
+    .cloud::before,
+    .cloud::after {
+      content: '';
+      position: absolute;
+      background: #ffffff;
+      border-radius: 50%;
+    }
+
+    .cloud-1 {
+      width: 130px;
+      height: 42px;
+      top: 14%;
+      left: -150px;
+      animation-duration: 38s;
+    }
+    .cloud-1::before { width: 55px; height: 55px; top: -26px; left: 20px; }
+    .cloud-1::after { width: 70px; height: 70px; top: -34px; left: 50px; }
+
+    .cloud-2 {
+      width: 170px;
+      height: 52px;
+      top: 26%;
+      left: -200px;
+      animation-duration: 52s;
+      animation-delay: -18s;
+      opacity: 0.65;
+      transform: scale(0.85);
+    }
+    .cloud-2::before { width: 68px; height: 68px; top: -32px; left: 28px; }
+    .cloud-2::after { width: 82px; height: 82px; top: -40px; left: 68px; }
+
+    .cloud-3 {
+      width: 110px;
+      height: 36px;
+      top: 19%;
+      left: -130px;
+      animation-duration: 44s;
+      animation-delay: -32s;
+    }
+    .cloud-3::before { width: 46px; height: 46px; top: -22px; left: 16px; }
+    .cloud-3::after { width: 56px; height: 56px; top: -26px; left: 44px; }
+
+    @keyframes floatCloud {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(100vw + 350px)); }
+    }
+
+    /* ================= CENTER STAGE & BOTTLE ================= */
+    .ocean-stage {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 10;
+      padding-bottom: 60px;
+    }
+
+    .prompt-bubble {
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px solid #bae6fd;
+      padding: 10px 22px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.18);
+      margin-bottom: 24px;
+      animation: bouncePrompt 2.4s ease-in-out infinite;
+      text-align: center;
+      max-width: 90%;
+    }
+
+    .prompt-sub {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--accent-blue);
+      margin-top: 3px;
+      font-weight: 600;
+    }
+
+    @keyframes bouncePrompt {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+
+    /* Interactive Bottle Wrapper */
+    .bottle-wrapper {
+      position: relative;
+      width: 150px;
+      height: 230px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: bobBottle 3.5s ease-in-out infinite;
+      transition: transform 0.3s ease;
+    }
+
+    .bottle-wrapper:hover {
+      transform: scale(1.06) rotate(-3deg);
+    }
+
+    @keyframes bobBottle {
+      0%, 100% { transform: translateY(0px) rotate(-6deg); }
+      50% { transform: translateY(14px) rotate(5deg); }
+    }
+
+    /* Cork */
+    .bottle-cork {
+      position: absolute;
+      top: 14px;
+      width: 34px;
+      height: 26px;
+      background: linear-gradient(90deg, #d97706, #f59e0b, #b45309);
+      border-radius: 6px 6px 4px 4px;
+      z-index: 4;
+      border: 2px solid #92400e;
+      transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .bottle-wrapper.popped .bottle-cork {
+      transform: translateY(-120px) rotate(35deg) scale(0.8);
+      opacity: 0;
+    }
+
+    /* Bottle Neck & Body */
+    .bottle-neck {
+      position: absolute;
+      top: 34px;
+      width: 46px;
+      height: 40px;
+      background: rgba(224, 242, 254, 0.55);
+      border: 3px solid rgba(255, 255, 255, 0.9);
+      border-bottom: none;
+      border-radius: 8px 8px 0 0;
+      z-index: 3;
+      backdrop-filter: blur(3px);
+    }
+
+    .bottle-rim {
+      position: absolute;
+      top: 30px;
+      width: 54px;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 999px;
+      z-index: 5;
+      box-shadow: 0 2px 6px rgba(14, 165, 233, 0.2);
+    }
+
+    .bottle-body {
+      position: absolute;
+      top: 70px;
+      width: 104px;
+      height: 142px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.65) 0%, rgba(186, 230, 253, 0.45) 55%, rgba(125, 211, 252, 0.55) 100%);
+      border: 3.5px solid rgba(255, 255, 255, 0.92);
+      border-radius: 36px 36px 26px 26px;
+      z-index: 3;
+      backdrop-filter: blur(4px);
+      box-shadow:
+        inset 10px 0 18px rgba(255, 255, 255, 0.7),
+        inset -8px -10px 18px rgba(56, 189, 248, 0.25),
+        0 18px 35px rgba(2, 132, 199, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Glass shine highlight */
+    .bottle-shine {
+      position: absolute;
+      top: 16px;
+      left: 14px;
+      width: 12px;
+      height: 90px;
+      background: rgba(255, 255, 255, 0.75);
+      border-radius: 999px;
+    }
+
+    /* Glowing Rolled Scroll Inside Bottle */
+    .scroll-inside {
+      width: 44px;
+      height: 86px;
+      background: linear-gradient(90deg, #fef3c7, #fffbeb, #fde68a);
+      border-radius: 8px;
+      border: 2px solid #f59e0b;
+      position: relative;
+      box-shadow: 0 0 22px rgba(251, 191, 36, 0.85);
+      transform: rotate(8deg);
+      transition: all 0.5s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Red/Pink Ribbon around the scroll */
+    .scroll-ribbon {
+      width: 100%;
+      height: 12px;
+      background: #fb7185;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .scroll-heart {
+      font-size: 13px;
+      line-height: 1;
+    }
+
+    .bottle-wrapper.popped .scroll-inside {
+      transform: translateY(-90px) scale(1.15);
+      opacity: 0;
+    }
+
+    /* Water ripple around bottle base */
+    .water-ring {
+      position: absolute;
+      bottom: 6px;
+      width: 130px;
+      height: 24px;
+      border: 2.5px solid rgba(255, 255, 255, 0.75);
+      border-radius: 50%;
+      z-index: 4;
+      animation: rippleRing 2.5s infinite ease-out;
+    }
+
+    @keyframes rippleRing {
+      0% { transform: scale(0.75); opacity: 0.9; }
+      100% { transform: scale(1.35); opacity: 0; }
+    }
+
+    /* ================= ANIMATED OCEAN WAVES ================= */
+    .ocean-waves {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 36vh;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    .wave-layer {
+      position: absolute;
+      left: 0;
+      width: 200%;
+      height: 100%;
+      background-repeat: repeat-x;
+      background-position: 0 bottom;
+      background-size: 50% 100%;
+    }
+
+    .wave-back {
+      bottom: 25px;
+      height: 100%;
+      opacity: 0.55;
+      animation: moveWave 18s linear infinite;
+    }
+
+    .wave-mid {
+      bottom: 10px;
+      height: 92%;
+      opacity: 0.78;
+      animation: moveWave 13s linear infinite reverse;
+    }
+
+    .wave-front {
+      bottom: 0;
+      height: 84%;
+      opacity: 0.96;
+      animation: moveWave 9.5s linear infinite;
+    }
+
+    @keyframes moveWave {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ================= MESSAGE MODAL / LETTER CARD ================= */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 38, 66, 0.32);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .modal-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .letter-card {
+      background: var(--card-bg);
+      border: 3px solid #ffffff;
+      border-radius: 28px;
+      width: 100%;
+      max-width: 540px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 26px 26px 24px;
+      box-shadow: 0 24px 50px rgba(30, 64, 175, 0.22);
+      transform: translateY(35px) scale(0.94);
+      transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      position: relative;
+      user-select: text;
+    }
+
+    .modal-backdrop.active .letter-card {
+      transform: translateY(0) scale(1);
+    }
+
+    /* Custom Scrollbar for Letter Card */
+    .letter-card::-webkit-scrollbar {
+      width: 6px;
+    }
+    .letter-card::-webkit-scrollbar-thumb {
+      background: #bfdbfe;
+      border-radius: 999px;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1.5px dashed #bfdbfe;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+    }
+
+    .packet-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      background: #eff6ff;
+      color: var(--accent-blue);
+      border: 1px solid #bfdbfe;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+    .close-btn {
+      background: #f1f5f9;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 1rem;
+      cursor: pointer;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .close-btn:hover {
+      background: #e2e8f0;
+      color: var(--text-main);
+      transform: rotate(90deg);
+    }
+
+    /* Interactive Birthday Cake Section */
+    .cake-box {
+      background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 100%);
+      border: 2px solid #bae6fd;
+      border-radius: 20px;
+      padding: 18px 14px 14px;
+      text-align: center;
+      margin-bottom: 18px;
+      position: relative;
+    }
+
+    .cake-illustration {
+      position: relative;
+      width: 120px;
+      height: 105px;
+      margin: 0 auto 8px;
+      cursor: pointer;
+    }
+
+    /* Candle */
+    .candle {
+      width: 12px;
+      height: 30px;
+      background: repeating-linear-gradient(
+        45deg,
+        #ffffff,
+        #ffffff 4px,
+        #60a5fa 4px,
+        #60a5fa 8px
+      );
+      border: 1.5px solid #3b82f6;
+      border-radius: 4px;
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+    }
+
+    /* Flame */
+    .flame {
+      width: 14px;
+      height: 20px;
+      background: radial-gradient(circle at 50% 70%, #ffffff 10%, #fde047 45%, #fb923c 85%);
+      border-radius: 50% 50% 35% 35%;
+      position: absolute;
+      top: -21px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 14px #facc15, 0 0 24px #fb923c;
+      animation: flickerFlame 0.6s infinite alternate;
+      transition: all 0.3s ease;
+    }
+
+    .flame.out {
+      opacity: 0;
+      transform: translateX(-50%) scale(0.2);
+      pointer-events: none;
+    }
+
+    @keyframes flickerFlame {
+      0% { transform: translateX(-50%) scale(1) rotate(-3deg); }
+      100% { transform: translateX(-50%) scale(1.1) rotate(3deg); }
+    }
+
+    /* Smoke when blown out */
+    .smoke {
+      position: absolute;
+      top: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: #64748b;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .smoke.active {
+      animation: smokeRise 1.6s ease-out forwards;
+    }
+
+    @keyframes smokeRise {
+      0% { opacity: 0.9; transform: translateX(-50%) translateY(0); }
+      100% { opacity: 0; transform: translateX(-50%) translateY(-24px); }
+    }
+
+    /* Cake Layers */
+    .cake-top {
+      position: absolute;
+      top: 46px;
+      left: 15px;
+      width: 90px;
+      height: 26px;
+      background: #fff1f2;
+      border: 2px solid #fda4af;
+      border-radius: 10px 10px 4px 4px;
+      z-index: 2;
+    }
+
+    /* Frosting drips */
+    .frosting {
+      position: absolute;
+      top: 46px;
+      left: 15px;
+      width: 90px;
+      height: 12px;
+      background: #93c5fd;
+      border-radius: 8px 8px 6px 6px;
+      z-index: 3;
+    }
+
+    .cake-bottom {
+      position: absolute;
+      top: 70px;
+      left: 8px;
+      width: 104px;
+      height: 28px;
+      background: #dbeafe;
+      border: 2px solid #60a5fa;
+      border-radius: 6px 6px 12px 12px;
+      z-index: 2;
+    }
+
+    .cake-plate {
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      width: 120px;
+      height: 8px;
+      background: #cbd5e1;
+      border-radius: 999px;
+      z-index: 1;
+    }
+
+    .blow-btn {
+      background: #3b82f6;
+      color: #ffffff;
+      border: none;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 700;
+      font-size: 0.84rem;
+      padding: 7px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .blow-btn:hover {
+      background: #2563eb;
+      transform: translateY(-1px);
+    }
+
+    .blow-btn.done {
+      background: #10b981;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+
+    /* Greeting & Message Typography */
+    .greeting-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .message-body {
+      font-size: 0.95rem;
+      line-height: 1.68;
+      color: #334e68;
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .message-body p + p {
+      margin-top: 10px;
+    }
+
+    .code-snippet {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.76rem;
+      background: #eff6ff;
+      border-left: 3.5px solid #3b82f6;
+      padding: 10px 12px;
+      border-radius: 0 10px 10px 0;
+      color: #1e40af;
+      margin-bottom: 16px;
+      overflow-x: auto;
+    }
+
+    /* Interactive Wish Sender */
+    .wish-Reply-box {
+      background: #f0f9ff;
+      border: 1.5px solid #bae6fd;
+      border-radius: 16px;
+      padding: 12px 14px;
+    }
+
+    .wish-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .wish-input-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .wish-input {
+      flex: 1;
+      border: 1.5px solid #93c5fd;
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      outline: none;
+      background: #ffffff;
+    }
+
+    .wish-input:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    }
+
+    .send-wish-btn {
+      background: #0284c7;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 8px 14px;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 700;
+      font-size: 0.84rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .send-wish-btn:hover {
+      background: #0369a1;
+    }
+
+    .wish-status {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: #059669;
+      margin-top: 8px;
+      display: none;
+    }
+
+    /* Floating Particles / Confetti */
+    .particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 99;
+      animation: floatUpParticle 2.6s ease-out forwards;
+    }
+
+    @keyframes floatUpParticle {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(0.7) rotate(0deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-180px) scale(1.25) rotate(25deg);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .telemetry-bar {
+        font-size: 0.68rem;
+        padding: 6px 12px;
+        gap: 8px;
+      }
+      .letter-card {
+        padding: 20px 18px;
+      }
+      .greeting-title {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= TOP IT TELEMETRY BAR ================= -->
+  <header class="telemetry-bar">
+    <span class="status-dot"></span>
+    <span class="badge-ok">Nyebelinnn</span>
+    <span class="divider">|</span>
+    <span id="endpoint-text">Selamat Ulang Tahun yang ke 21 ya Sayanggggg</span>
+    <span class="divider">|</span>
+    <span>19/11/2026</span>
+    <span class="divider">|</span>
+    <button class="audio-btn" id="musicToggleBtn" title="Putar / Matikan Musik">
+      🎵 Music: OFF
+    </button>
+  </header>
+
+  <!-- ================= SKY & CLOUDS ================= -->
+  <div class="sky-clouds">
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+  </div>
+
+  <!-- ================= CENTER BOTTLE STAGE ================= -->
+  <main class="ocean-stage">
+    <div class="prompt-bubble" id="promptBubble">
+      Ada pesan botol dari orang tercinta nye, klik botolnya woi kocak
+      <span class="prompt-sub"></span>
+    </div>
+
+    <div class="bottle-wrapper" id="bottleWrapper" role="button" tabindex="0" aria-label="Buka botol pesan ulang tahun">
+      <div class="bottle-cork"></div>
+      <div class="bottle-rim"></div>
+      <div class="bottle-neck"></div>
+      <div class="bottle-body">
+        <div class="bottle-shine"></div>
+        <div class="scroll-inside">
+          <div class="scroll-ribbon">
+            <span class="scroll-heart">💙</span>
+          </div>
+        </div>
+      </div>
+      <div class="water-ring"></div>
+    </div>
+  </main>
+
+  <!-- ================= LAYERED PASTEL OCEAN WAVES ================= -->
+  <div class="ocean-waves">
+    <!-- Back Wave -->
+    <svg class="wave-layer wave-back" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#93c5fd" d="M0,160L60,170.7C120,181,240,203,360,192C480,181,600,139,720,138.7C840,139,960,181,1080,197.3C1200,213,1320,203,1380,197.3L1440,192L1440,320L0,320Z"></path>
+    </svg>
+    <!-- Mid Wave -->
+    <svg class="wave-layer wave-mid" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#60a5fa" d="M0,192L80,176C160,160,320,128,480,138.7C640,149,800,203,960,213.3C1120,224,1280,192,1360,176L1440,160L1440,320L0,320Z"></path>
+    </svg>
+    <!-- Front Wave -->
+    <svg class="wave-layer wave-front" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#3b82f6" d="M0,224L60,213.3C120,203,240,181,360,186.7C480,192,600,224,720,229.3C840,235,960,213,1080,197.3C1200,181,1320,171,1380,165.3L1440,160L1440,320L0,320Z"></path>
+    </svg>
+  </div>
+
+  <!-- ================= LETTER MODAL POPUP ================= -->
+  <div class="modal-backdrop" id="letterModal">
+    <article class="letter-card">
+      <div class="card-header">
+        <span class="packet-tag" id="packetIdTag">Birthday Nyebelinnn</span>
+        <button class="close-btn" id="closeModalBtn" title="Tutup surat">✕</button>
+      </div>
+
+      <!-- Interactive Cake -->
+      <div class="cake-box">
+        <div class="cake-illustration" id="cakeTrigger" title="Klik untuk tiup lilin!">
+          <div class="candle">
+            <div class="flame" id="candleFlame"></div>
+            <div class="smoke" id="candleSmoke">~ ~ ~</div>
+          </div>
+          <div class="frosting"></div>
+          <div class="cake-top"></div>
+          <div class="cake-bottom"></div>
+          <div class="cake-plate"></div>
+        </div>
+        <button class="blow-btn" id="blowCandleBtn">Tiup Lilinnya!</button>
+      </div>
+
+      <h1 class="greeting-title" id="greetingTitle">Happy Level Up Day!</h1>
+
+      <div class="message-body" id="messageContainer">
+        <!-- Diisi otomatis dari CONFIG di bawah -->
+      </div>
+
+      <div class="code-snippet" id="codeSnippet">
+        // Decrypted Birthday Metadata<br>
+        const status = { bugs: 0, happiness: "100%", bless: Infinity };
+      </div>
+
+      <!-- Send Wish Back to Ocean -->
+      <div class="wish-Reply-box">
+        <label class="wish-label" for="wishInput">Tulis harapanmu tahun ini lalu lempar ke lautan:</label>
+        <div class="wish-input-row">
+          <input type="text" id="wishInput" class="wish-input" placeholder="Ketik doa / harapanmu di sini..." />
+          <button class="send-wish-btn" id="sendWishBtn">Kirim </button>
+        </div>
+        <div class="wish-status" id="wishStatus">
+          Harapanmu berhasil di-broadcast ke semesta.
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- ================= SCRIPT & KONFIGURASI MUDAH ================= -->
+  <script>
+    /**
+     * ============================================================
+     * 🛠️ BAGIAN KONFIGURASI (UBAH NAMA & UCAPAN DI SINI)
+     * ============================================================
+     */
+    const CONFIG = {
+      recipientName: "Nyebelinnn kocak",
+      packetId: "Birthday Nyebelinnn",
+      greetingTitle: "Happy Birthday, Tasya!",
+      paragraphs: [
+        "Happy Birthday Tasya Dwi Anggraini. Selamat ulang tahun ya sayanggggg! Semoga di versi umur yang baru ini, hidupmu makin minim bug, kuliahnya selalu 200 OK, dan semua cita-cita yang lagi kamu compile bisa berjalan lancar tanpa error.",
+        "Makasih ya cinta, aku gatau lagi harus gimana soal berterima kasih sama kamu. Setelah apa yang aku lakuin ke kamu, aku bikin kamu sakit hati, nyuekin kamu, gapernah bales chat kamu, menghindar dari kamu. Tapi setelah semua itu kamu masih bisa sayang sama aku, cinta sama aku, bahkan aku juga percaya, aku yakin kalo cinta kamu masih utuh ke aku. Makasih ya sayangggggg.",
+        "Mungkin aku cuma mau ngingetin satu hal, aku selalu sayangggggg sama kamu, selalu cintaaaaa sama kamu. I love You Nyebelinnn, tetap jadi punyaku ya cinta.",
+        "Eh ada 1 hal lagi deng, kamu istirahat yang cukup dong kocakkkkk, yang kamu lakuin emang buat masa depan sayang. Tapi istirahat yang cukup juga bakal jadi investasi kita di masa depan, gaada yang bisa gantiin sehat.",
+        "Semoga hari ini penuh dengan hal-hal manis, tawa, dan kebahagiaan. BTW Tiup lilin dulu woi diatas."
+      ],
+      
+      
+    };
+
+    // Terapkan konfigurasi ke elemen HTML
+    document.getElementById("packetIdTag").textContent = CONFIG.packetId;
+    document.getElementById("greetingTitle").textContent = CONFIG.greetingTitle;
+    const codeBox = document.getElementById("codeSnippet");
+if (codeBox) codeBox.style.display = "none";
+
+    const messageContainer = document.getElementById("messageContainer");
+    messageContainer.innerHTML = CONFIG.paragraphs.map(p => `<p>${p}</p>`).join("");
+
+    /**
+     * ============================================================
+     * 🎵 WEB AUDIO API SYNTHESIZER (TANPA FILE MP3 EKSTERNAL)
+     * ============================================================
+     */
+    let audioCtx = null;
+    let isMusicPlaying = false;
+    let musicTimeout = null;
+
+    function initAudio() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContext();
+      }
+      if (audioCtx.state === "suspended") {
+        audioCtx.resume();
+      }
+    }
+
+    // Efek suara tutup botol "Pop!"
+    function playCorkPop() {
+      initAudio();
+      const now = audioCtx.currentTime;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(160, now);
+      osc.frequency.exponentialRampToValueAtTime(620, now + 0.09);
+      gain.gain.setValueAtTime(0.35, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start(now);
+      osc.stop(now + 0.13);
+    }
+
+    // Efek suara tiup lilin lembut (Soft Wind Puff)
+    function playBlowSound() {
+      initAudio();
+      const bufferSize = audioCtx.sampleRate * 0.45;
+      const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+      const data = buffer.getChannelData(0);
+      for (let i = 0; i < bufferSize; i++) {
+        data[i] = Math.random() * 2 - 1;
+      }
+      const noise = audioCtx.createBufferSource();
+      noise.buffer = buffer;
+
+      const filter = audioCtx.createBiquadFilter();
+      filter.type = "lowpass";
+      filter.frequency.setValueAtTime(800, audioCtx.currentTime);
+      filter.frequency.linearRampToValueAtTime(220, audioCtx.currentTime + 0.45);
+
+      const gain = audioCtx.createGain();
+      gain.gain.setValueAtTime(0.25, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.45);
+
+      noise.connect(filter);
+      filter.connect(gain);
+      gain.connect(audioCtx.destination);
+      noise.start();
+    }
+
+    // Efek chime lucu saat kirim harapan
+    function playSparkleChime() {
+      initAudio();
+      const notes = [523.25, 659.25, 783.99, 1046.5];
+      notes.forEach((freq, idx) => {
+        const now = audioCtx.currentTime + idx * 0.08;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = "triangle";
+        osc.frequency.setValueAtTime(freq, now);
+        gain.gain.setValueAtTime(0.18, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + 0.36);
+      });
+    }
+
+    // Melodi Music Box "Happy Birthday"
+    const melodyNotes = [
+      { f: 261.63, d: 0.3 }, { f: 261.63, d: 0.3 }, { f: 293.66, d: 0.5 }, { f: 261.63, d: 0.5 }, { f: 349.23, d: 0.5 }, { f: 329.63, d: 0.9 },
+      { f: 261.63, d: 0.3 }, { f: 261.63, d: 0.3 }, { f: 293.66, d: 0.5 }, { f: 261.63, d: 0.5 }, { f: 392.00, d: 0.5 }, { f: 349.23, d: 0.9 },
+      { f: 261.63, d: 0.3 }, { f: 261.63, d: 0.3 }, { f: 523.25, d: 0.5 }, { f: 440.00, d: 0.5 }, { f: 349.23, d: 0.5 }, { f: 329.63, d: 0.5 }, { f: 293.66, d: 0.8 },
+      { f: 466.16, d: 0.3 }, { f: 466.16, d: 0.3 }, { f: 440.00, d: 0.5 }, { f: 349.23, d: 0.5 }, { f: 392.00, d: 0.5 }, { f: 349.23, d: 1.0 }
+    ];
+
+    function playMusicBoxLoop(index = 0) {
+      if (!isMusicPlaying) return;
+      initAudio();
+      const note = melodyNotes[index];
+      const now = audioCtx.currentTime;
+
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(note.f, now);
+
+      gain.gain.setValueAtTime(0.16, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + note.d * 0.95);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start(now);
+      osc.stop(now + note.d);
+
+      const nextIndex = (index + 1) % melodyNotes.length;
+      musicTimeout = setTimeout(() => playMusicBoxLoop(nextIndex), note.d * 1000);
+    }
+
+    const musicToggleBtn = document.getElementById("musicToggleBtn");
+    function toggleMusic(forceState) {
+      isMusicPlaying = typeof forceState === "boolean" ? forceState : !isMusicPlaying;
+      if (isMusicPlaying) {
+        musicToggleBtn.textContent = "🎵 Music: ON";
+        clearTimeout(musicTimeout);
+        playMusicBoxLoop(0);
+      } else {
+        musicToggleBtn.textContent = "🎵 Music: OFF";
+        clearTimeout(musicTimeout);
+      }
+    }
+
+    musicToggleBtn.addEventListener("click", () => toggleMusic());
+
+    /**
+     * ============================================================
+     * ✨ EFEK PARTIKEL GELEMBUNG & BINTANG PASTEL
+     * ============================================================
+     */
+    function spawnParticles(count = 16) {
+      const emojis = ["🫧", "✨", "💙", "⭐", "🌊", "🎉"];
+      for (let i = 0; i < count; i++) {
+        const el = document.createElement("div");
+        el.className = "particle";
+        el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        el.style.left = `${Math.random() * 86 + 7}vw`;
+        el.style.top = `${Math.random() * 45 + 40}vh`;
+        el.style.fontSize = `${Math.random() * 14 + 16}px`;
+        el.style.animationDuration = `${Math.random() * 1.4 + 1.8}s`;
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 3200);
+      }
+    }
+
+    /**
+     * ============================================================
+     * 🍾 INTERAKSI BOTOL, LILIN, DAN HARAPAN
+     * ============================================================
+     */
+    const bottleWrapper = document.getElementById("bottleWrapper");
+    const letterModal = document.getElementById("letterModal");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+    const promptBubble = document.getElementById("promptBubble");
+
+    function openBottle() {
+      playCorkPop();
+      bottleWrapper.classList.add("popped");
+      spawnParticles(20);
+      promptBubble.innerHTML = "🔓 Paket berhasil didekripsi! Membuka pesan...<span class='prompt-sub'>";
+
+      setTimeout(() => {
+        letterModal.classList.add("active");
+        if (!isMusicPlaying) {
+          toggleMusic(true);
+        }
+      }, 450);
+    }
+
+    bottleWrapper.addEventListener("click", openBottle);
+    bottleWrapper.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") openBottle();
+    });
+
+    closeModalBtn.addEventListener("click", () => {
+      letterModal.classList.remove("active");
+      bottleWrapper.classList.remove("popped");
+      promptBubble.innerHTML = "✨ Klik botolnya lagi kalau mau baca ulang suratnya~"
+    });
+
+    // Interaksi Tiup Lilin
+    const candleFlame = document.getElementById("candleFlame");
+    const candleSmoke = document.getElementById("candleSmoke");
+    const blowCandleBtn = document.getElementById("blowCandleBtn");
+    const cakeTrigger = document.getElementById("cakeTrigger");
+    let isCandleBlown = false;
+
+    function handleBlowCandle() {
+      if (!isCandleBlown) {
+        isCandleBlown = true;
+        playBlowSound();
+        candleFlame.classList.add("out");
+        candleSmoke.classList.add("active");
+        blowCandleBtn.textContent = "🎉 Yeay! Semoga terkabul! (Nyalakan lagi?)";
+        blowCandleBtn.classList.add("done");
+        spawnParticles(24);
+      } else {
+        isCandleBlown = false;
+        playSparkleChime();
+        candleFlame.classList.remove("out");
+        candleSmoke.classList.remove("active");
+        blowCandleBtn.textContent = "🌬️ Tiup Lilinnya!";
+        blowCandleBtn.classList.remove("done");
+      }
+    }
+
+    blowCandleBtn.addEventListener("click", handleBlowCandle);
+    cakeTrigger.addEventListener("click", handleBlowCandle);
+
+    // Interaksi Kirim Harapan ke Lautan
+    const wishInput = document.getElementById("wishInput");
+    const sendWishBtn = document.getElementById("sendWishBtn");
+    const wishStatus = document.getElementById("wishStatus");
+
+    function sendWish() {
+      const val = wishInput.value.trim();
+      if (!val) {
+        wishInput.focus();
+        return;
+      }
+      playSparkleChime();
+      spawnParticles(18);
+      wishStatus.style.display = "block";
+      wishStatus.textContent = ` Harapan "${val}" berhasil dikirim ke semesta!`;
+      wishInput.value = "";
+    }
+
+    sendWishBtn.addEventListener("click", sendWish);
+    wishInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") sendWish();
+    });
+  </script>
+</body>
+</html>
